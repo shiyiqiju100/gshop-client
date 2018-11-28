@@ -7,18 +7,17 @@
 
 <script>
   import FooterGuide from './components/FooterGuide/FooterGuide'
-  import {reqAddress,reqCategory,reqShops} from './api'
+
   export default {
     name: 'App',
     components:{
       FooterGuide
     },
-  async mounted(){
-    // const result = await reqAddress('40.10038','116.36867')
-   // const result = await reqCategory()
-   // const result = await reqShops()
-     console.log(result);
-  }
+     mounted() {
+        // 异步获取address到state中
+        this.$store.dispatch('getAddress')
+      }
+
   }
 </script>
 
