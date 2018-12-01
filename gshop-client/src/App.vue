@@ -16,6 +16,8 @@
      mounted() {
         // 异步获取address到state中
         this.$store.dispatch('getAddress')
+       //异步获取当前用户信息
+       this.$store.dispatch('getUser')
       }
 
   }
