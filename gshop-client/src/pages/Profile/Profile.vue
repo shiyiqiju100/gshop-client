@@ -93,13 +93,22 @@
     <section class="profile_my_order border-1px" v-if="user._id">
       <mt-button type="danger" style="width: 100%" @click="logout">退出登陆</mt-button>
     </section>
+
+    <section class="profile_my_order border-1px">
+      <router-link to="/a">AAA</router-link>
+      &nbsp;&nbsp;
+      <router-link to="/b">BBB</router-link>
+      &nbsp;&nbsp;
+      <router-link to="/login">去登陆</router-link>
+    </section>
   </section>
 </template>
 
 <script>
-  import { MessageBox } from 'mint-ui'
+  import {MessageBox } from 'mint-ui'
   import {mapState} from 'vuex'
   import TopHeader from '../../components/TopHeader/TopHeader'
+
   export default {
     name: "profile",
     components:{

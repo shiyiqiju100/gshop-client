@@ -1,8 +1,15 @@
 <template>
+  <!--
+  v-show 通过样式来切换，img标签并没有销毁，导致每次切换图片时，图片都已经有了，所以显示是同一张
+ v-if 每次销毁后再创建，就不会存在这个问题 但是v-if 效率比较低
+ 为了提高效率，给img单独添加v-if 比较合适
+  -->
   <div class="food" v-show="isShow">
-    <div class="food-content">
+    <div class="food-content" >
       <div class="image-header">
-        <img :src="food.image">
+      <!--  <img :src="food.image">-->
+        <!--显示图片时，才懒加载-->
+        <img v-if="isShow" v-lazy ="food.image">
         <p class="foodpanel-desc">{{food.info}}</p>
         <div class="back" @click="toggleFoodShow">
           <i class="iconfont icon-arrow_left"></i>
@@ -44,6 +51,7 @@
       }
     },
     methods: {
+      //切换食物显示 methods中的方法都会成为组件对象/vm的方法
       toggleFoodShow() {
         this.isShow = !this.isShow
       }
